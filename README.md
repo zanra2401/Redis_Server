@@ -9,9 +9,26 @@ Redis server untuk message broker sinkronisasi real-time antara ServerDaerah dan
 .\start-redis.bat
 ```
 
+### Linux
+```bash
+chmod +x start-redis.sh test-redis.sh
+./start-redis.sh
+```
+
 ### Manual Start
 ```powershell
+# Windows
 .\redis-server.exe redis.conf
+```
+
+```bash
+# Linux
+redis-server redis.conf
+```
+
+### Install Redis on Linux
+```bash
+sudo apt-get update && sudo apt-get install -y redis-server redis-tools
 ```
 
 ## Configuration
@@ -65,6 +82,14 @@ netstat -ano | findstr :6379
 
 # Kill process
 taskkill /PID <PID> /F
+```
+
+```bash
+# Linux: check process using port 6379
+lsof -i :6379
+
+# Kill process (replace <PID>)
+sudo kill -9 <PID>
 ```
 
 **Redis Not Responding:**
